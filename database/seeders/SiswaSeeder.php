@@ -26,9 +26,19 @@ class SiswaSeeder extends Seeder
                 'kelas_id' => 2,
                 'password' => bcrypt('Putri12345')
             ],
+        [
+            'nis' => '1023011003',
+            'nama_siswa' => 'Ridwan Adiansyah',
+            'kelas_id' => 2,
+            'password' => bcrypt('Ridwan12345')
+        ]
         ];
-        foreach($data as $siswa) {
-            Siswa::create($siswa);
-        }
+        foreach ($data as $siswa) {
+    Siswa::updateOrCreate(
+        ['nis' => $siswa['nis']], 
+        $siswa
+    );
+}
+
     }
 }

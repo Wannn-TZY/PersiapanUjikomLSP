@@ -67,10 +67,11 @@
                     <a href="/nilai-raport/edit/{{ $data->id }}">
                         <button class="index-button">EDIT</button>
                     </a>
-                    <a href="/nilai-raport/destroy/{{ $data->id }}"
-                    onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">
-                        <button class="index-button">DELETE</button>
-                    </a>
+                    <form action="{{ url('nilai-raport/destroy/'.$data->id) }}" method="POST" onsubmit="return confirm('Apakah anda yakin ingin menghapus data ini?')">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="index-button">DELETE</button>
+                    </form>
                 </td>
             </tr>
             @endforeach
